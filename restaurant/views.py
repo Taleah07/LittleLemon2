@@ -11,6 +11,10 @@ from rest_framework.decorators import permission_classes
 def index(request):
      return render(request, 'index.html', {})
 
+class MenuView(generics.ListCreateAPIView):
+     queryset = menu.objects.all()
+     serializer_class = MenuSerializer
+
 class MenuItemsView(generics.ListCreateAPIView):
      queryset = menu.objects.all()
      serializer_class = MenuSerializer
